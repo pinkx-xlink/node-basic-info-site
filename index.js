@@ -4,14 +4,14 @@ const path = require("path");
 const fs = require("fs");
 const EventEmitter = require('node:events');
 
-const eventEmitter = new EventEmitter
+class MyEmitter extends EventEmitter {}
+const eventEmitter = new EventEmitter();
 // const hostname = '127.0.0.1';
 // const port = 3000;
-eventEmitter.on('start', () => {
-  console.log('started');
-});
 
-eventEmitter.emit('start');
+
+
+// eventEmitter.emit('start');
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
@@ -76,7 +76,21 @@ const server = http.createServer((req, res) => {
         // Success
         res.writeHead(200, { "Content-Type": contentType });
         res.end(content, "utf8");
+        eventEmitter.emit('switchPage', res);
+    } 
+  });
+});
+
+eventEmitter.on('switchPage', (res) => {
+  console.log('started');
+  fs.readFile('about.html', (err, data) > {
+    if (err) {
+      res.writeHead(500, {'Content-Type': 'text/plain' });
+      res.end('Interal server error');
+      return;
     }
+    res.writeHead(200, { 'Content-Type': 'text.html' });
+    res.end(data);
   });
 });
 
