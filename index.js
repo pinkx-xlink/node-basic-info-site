@@ -1,12 +1,12 @@
-const { createServer } = require('node:http');
+// const { createServer } = require('node:http');
 const http = require("http");
 const path = require("path");
 const fs = require("fs");
 
-const hostname = '127.0.0.1';
-const port = 3000;
+// const hostname = '127.0.0.1';
+// const port = 3000;
 
-const server = createServer((req, res) => {
+const server = http.createServer((req, res) => {
   res.statusCode = 200;
   // Build file path
   let filePath = path.join(
@@ -68,6 +68,7 @@ const server = createServer((req, res) => {
     } else {
         // Success
         res.writeHead(200, { "Content-Type": contentType });
+        res.end(content, "utf8");
     }
   });
 });
