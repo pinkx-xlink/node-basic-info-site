@@ -2,9 +2,16 @@
 const http = require("http");
 const path = require("path");
 const fs = require("fs");
+const EventEmitter = require('node:events');
 
+const eventEmitter = new EventEmitter
 // const hostname = '127.0.0.1';
 // const port = 3000;
+eventEmitter.on('start', () => {
+  console.log('started');
+});
+
+eventEmitter.emit('start');
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
