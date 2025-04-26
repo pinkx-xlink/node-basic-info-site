@@ -28,6 +28,8 @@ const server = http.createServer((req, res) => {
     });
   } else if (req.url === '/about') {
     eventEmitter.emit('switchPage', res);
+  } else if (req.url === '/contactMe') {
+    eventEmitter.emit('switchPage', res);
   } else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('Page Not Found');
@@ -99,8 +101,9 @@ const server = http.createServer((req, res) => {
   // });
 });
 
+
 eventEmitter.on('switchPage', (res) => {
-  // console.log('started');
+  console.log('started');
   fs.readFile('about.html', (err, data) => {
     if (err) {
       res.writeHead(500, { 'Content-Type': 'text/plain' });
@@ -110,6 +113,7 @@ eventEmitter.on('switchPage', (res) => {
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.end(data);
   });
+  
 });
 
 server.listen(3000, () => {
