@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <nav>
-        <h1> Welcome to the Homepage </h1>
-        <div class="redirect">
-            <button onclick="window.location.href='/about'">About</button>
-            <button onclick="window.location.href='/contactMe'">Contact Me</button>
-        </div>
-    </nav>
-    
+    <button id="redirectButton">Got to About Page</button>
 
+    <script>
+        document.getElementById('redirectButton').addEventListener('click',
+            () => {
+                window.location.href = '/about'
+            }
+        );
+    </script>
 </body>
 </html>
