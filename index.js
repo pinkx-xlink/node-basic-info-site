@@ -1,5 +1,12 @@
 const express = require("express");
 const app = express();
+const authorRouter = require("./routes/authorRouther");
+const bookRouter = require("./routes/bookRouther");
+const indexRouter = require("./routes/indexRouther");
+
+
+
+
 const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
