@@ -1,4 +1,4 @@
-// routes.authorRouter.js
+// routes/authorRouter.js
 const { Router } = require("express");
 
 const authorRouter = Router();
