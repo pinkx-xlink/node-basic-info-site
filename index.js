@@ -4,8 +4,9 @@ const authorRouter = require("./routes/authorRouther");
 const bookRouter = require("./routes/bookRouther");
 const indexRouter = require("./routes/indexRouther");
 
-
-
+app.use("/authors", authorRouter);
+app.use("/books", bookRouter);
+app.use("/", indexRouter);
 
 const PORT = process.env.PORT || 3000;
 
