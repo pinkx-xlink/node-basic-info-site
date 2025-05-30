@@ -6,12 +6,21 @@ const indexRouter = require("./routes/indexRouter");
 // This enables EJS as the view engine
 const path = require("node:path");
 
+const links = [
+  { href: "/", text: "Home" },
+  { href: "about", text: "About" },
+];
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+// app.get("/", (req, res) => {
+//   res.render("index", { message: "EJS rocks!!" });
+// });
+
 app.get("/", (req, res) => {
-  res.render("index", { message: "EJS rocks!!" });
-});
+  res.render("index", { links: links });
+})
 
 app.use("/authors", authorRouter);
 app.use("/books", bookRouter);
