@@ -3,7 +3,7 @@ const app = express();
 const authorRouter = require("./routes/authorRouter");
 const bookRouter = require("./routes/bookRouter");
 const indexRouter = require("./routes/indexRouter");
-
+// This enables EJS as the view engine
 const path = require("node:path");
 
 app.use("/authors", authorRouter);
