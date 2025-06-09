@@ -29,6 +29,10 @@ app.get("/", (req, res) => {
   res.render("index", { links: links, users: users });
 })
 
+app.get("/about", (req, res) => {
+  res.render("about", { message: "EJS rocks!" });
+});
+
 app.use("/authors", authorRouter);
 app.use("/books", bookRouter);
 app.use("/", indexRouter);
