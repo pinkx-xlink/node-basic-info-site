@@ -6,6 +6,7 @@ const indexRouter = require("./routes/indexRouter");
 // This enables EJS as the view engine
 const path = require("node:path");
 
+
 // express.static() is a middleware function that enables the use of static assets, and we tell it to look for assets with the public directory as the root.
 const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
