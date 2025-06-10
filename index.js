@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/about", (req, res) => {
-  res.render("about", { message: "EJS rocks!" });
+  res.render("about", { message: "ABOUT" });
 });
 
 app.use("/authors", authorRouter);
