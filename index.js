@@ -14,6 +14,7 @@ app.use(express.static(assetsPath));
 const links = [
   { href: "/", text: "Home" },
   { href: "about", text: "About" },
+  { href: "footer", text: "Footer" }
 ];
 
 const users = ["Rose", "Cake", "Biff"];
@@ -31,6 +32,10 @@ app.get("/", (req, res) => {
 
 app.get("/about", (req, res) => {
   res.render("about", { message: "ABOUT" });
+});
+
+app.get("/footer", (req, res) => {
+  res.render("footer", { message: "FOOTER" });
 });
 
 app.use("/authors", authorRouter);
